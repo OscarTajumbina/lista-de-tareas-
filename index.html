@@ -72,25 +72,39 @@
 <body background="imagenespagina/Descarga de fondos para páginas web.jpg">
     <div class="container">
         <h1>Lista de Tareas</h1>
-        <form id="task-form" action="#" method="post">
-            <input type="text" id="task" name="task" placeholder="Agregar nueva tarea" required>
+        <form id="task-form">
+            <input type="text" id="task" placeholder="Agregar nueva tarea" required>
             <input type="submit" value="Agregar">
         </form>
         <ul id="task-list">
-            <!-- Aquí se mostrarán las tareas -->
-            <li>
-                Tarea 1
-                <button class="delete-btn">Eliminar</button>
-            </li>
-            <li>
-                Tarea 2
-                <button class="delete-btn">Eliminar</button>
-            </li>
-            <li>
-                Tarea 3
-                <button class="delete-btn">Eliminar</button>
-            </li>
+            <!-- Las tareas se agregarán aquí dinámicamente -->
         </ul>
     </div>
+
+    <script>
+        document.getElementById('task-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var taskInput = document.getElementById('task');
+            var taskText = taskInput.value;
+            if (taskText.trim() !== '') {
+                addTaskToList(taskText);
+                taskInput.value = '';
+            }
+        });
+
+        function addTaskToList(taskText) {
+            var taskList = document.getElementById('task-list');
+            var li = document.createElement('li');
+            li.textContent = taskText;
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.classList.add('delete-btn');
+            deleteButton.addEventListener('click', function() {
+                li.remove();
+            });
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
+        }
+    </script>
 </body>
 </html>
