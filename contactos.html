@@ -12,6 +12,34 @@
             margin: 0;
             padding: 0;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #555;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #333;
+        }
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -25,19 +53,21 @@
             color: #007bff;
         }
         form {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
         }
         label {
-            display: block;
             margin-bottom: 5px;
         }
-        input[type="text"], textarea {
-            width: 100%;
+        input[type="text"],
+        textarea {
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            resize: none;
+        }
+        textarea {
+            resize: vertical;
         }
         input[type="submit"] {
             background-color: #007bff;
@@ -52,16 +82,18 @@
         }
     </style>
 </head>
-<body background="imagenespagina/Descarga de fondos para páginas web.jpg">
+<body background="imagenespagina/imagren web.jpg">
+    <header>
+        <h1>Contacto</h1>
+    </header>
     <nav>
         <ul>
-            <a href="index.html">Inicio</a>
-            <a href="contactos.html">Contacto</a>
-            <a href="about.html">Sobre Nosotros</a>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contactos.html">Contacto</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
         </ul>
     </nav>
     <div class="container">
-        <h1>Contacto</h1>
         <form action="#" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>

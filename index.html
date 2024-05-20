@@ -1,58 +1,122 @@
-<!DOC<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas</title>
     <style>
-        /* Estilos en línea */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
-  nav {
-    background-color: #555;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
-  .product {
-    float: left;
-    width: 30%;
-    margin: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  .product img {
-    width: 200px; 
-    height: 300px;
-  }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #555;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        #task-form {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        #task-form input[type="text"], 
+        #task-form input[type="date"], 
+        #task-form input[type="submit"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #task-form input[type="text"],
+        #task-form input[type="date"] {
+            flex: 1;
+            margin-right: 10px;
+        }
+        #task-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+        }
+        #task-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #8383f7;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
-<body background="imagenespagina/Descarga de fondos para páginas web.jpg">
+<body background="imagenespagina/imagren web.jpg">
+    <header>
+        <h1>Lista de Tareas</h1>
+    </header>
     <nav>
         <ul>
-            <a href="index.html">Inicio</a>
-            <a href="contactos.html">Contacto</a>
-            <a href="about.html">Sobre Nosotros</a>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contactos.html">Contacto</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
         </ul>
     </nav>
     <div class="container">
-        <h1>Lista de Tareas</h1>
         <form id="task-form">
             <input type="text" id="task" placeholder="Agregar nueva tarea" required>
             <input type="date" id="task-date" required>
