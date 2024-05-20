@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOC<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -27,8 +27,8 @@
         #task-form {
             margin-bottom: 20px;
         }
-        #task-form input[type="text"] {
-            width: calc(100% - 70px);
+        #task-form input[type="text"], #task-form input[type="date"] {
+            width: calc(50% - 15px);
             padding: 10px;
             margin-right: 10px;
             border: 1px solid #ccc;
@@ -81,6 +81,7 @@
         <h1>Lista de Tareas</h1>
         <form id="task-form">
             <input type="text" id="task" placeholder="Agregar nueva tarea" required>
+            <input type="date" id="task-date" required>
             <input type="submit" value="Agregar">
         </form>
         <ul id="task-list">
@@ -92,17 +93,20 @@
         document.getElementById('task-form').addEventListener('submit', function(event) {
             event.preventDefault();
             var taskInput = document.getElementById('task');
+            var dateInput = document.getElementById('task-date');
             var taskText = taskInput.value;
-            if (taskText.trim() !== '') {
-                addTaskToList(taskText);
+            var taskDate = dateInput.value;
+            if (taskText.trim() !== '' && taskDate.trim() !== '') {
+                addTaskToList(taskText, taskDate);
                 taskInput.value = '';
+                dateInput.value = '';
             }
         });
 
-        function addTaskToList(taskText) {
+        function addTaskToList(taskText, taskDate) {
             var taskList = document.getElementById('task-list');
             var li = document.createElement('li');
-            li.textContent = taskText;
+            li.textContent = taskText + " - Fecha: " + taskDate;
             var deleteButton = document.createElement('button');
             deleteButton.textContent = 'Eliminar';
             deleteButton.classList.add('delete-btn');
